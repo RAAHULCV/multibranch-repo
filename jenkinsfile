@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage ("1. 1. install ansible pkg") {
+        stage ("1. install ansible pkg") {
             steps {
                 sh "amazon-linux-extras install -y ansible2"
                 sh "mkdir -p inbound"
@@ -20,13 +20,13 @@ pipeline {
                 sh "systemctl enable httpd"
             }
         }
-        stage ("3. ansible") {
+        stage ("4. ansible") {
             steps {
                 sh "ansible --version"
                 sh "rpm -qa | grep ansible"
             }
         }
-        stage ("4. create file") {
+        stage ("5. create file") {
             steps {
                 sh "echo test.txt"
                 sh "date"
